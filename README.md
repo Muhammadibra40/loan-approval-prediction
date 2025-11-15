@@ -31,7 +31,7 @@ A High-level overview of the repository layout:
 ```
 diabetes-prediction/
 ├── data/
-│   └── diabetes.csv
+│   └── diabetes_prediction_dataset.csv
 │
 ├── notebook.ipynb
 │  
