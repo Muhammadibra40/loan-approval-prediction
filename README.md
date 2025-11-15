@@ -11,8 +11,8 @@
 7. [Model Details](#model-details)
 8. [Results & Evaluation](#results--evaluation)
 9. [Contributing](#contributing)
-10. [License](#license)
-11. [Contact](#contact)
+10. [Contact](#contact)
+
 
 ---
 
@@ -91,7 +91,7 @@ This project uses the **Diabetes prediction dataset** that can be found here [da
 
    * Loads the dataset
    * Trains a classification model (Gradient Boosting)
-   * Saves the model artifact in `models/`
+   * Saves the model artifact in `model_final.bin`
 
 3. **Model Saving**
 
@@ -218,7 +218,6 @@ run notebook.ipynb
 ## 8. Results & Evaluation (Gradient Boosting)
 
 
-Here's a polished and Markdown-friendly version of your metrics table, ideal for a README.md:
 ## 📊 Model Performance Metrics
 
 | Metric     | Value  |
@@ -241,16 +240,8 @@ Contributions are welcome!
 3. Make your changes
 4. Submit a pull request
 
----
 
-## 10. License
-
-This project is licensed under the **MIT License**.
-Feel free to use, modify, and distribute.
-
----
-
-## 11. Contact
+## 10. Contact
 
 **Author:** Muhammad Ibrahim
 
