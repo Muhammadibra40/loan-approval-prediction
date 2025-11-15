@@ -219,7 +219,7 @@ This project includes everything needed to run the training or prediction pipeli
 
 ---
 
-## 🐳 Build the Docker Image
+## Build the Docker Image
 
 From the project root directory:
 
@@ -235,7 +235,7 @@ This command:
 
 ---
 
-## ▶️ Run the Container
+## Run the Container
 
 
 ### **Run prediction inside the container**
