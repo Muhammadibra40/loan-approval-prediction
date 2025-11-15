@@ -8,10 +8,11 @@
 4. [How It Works](#how-it-works)
 5. [Installation](#installation)
 6. [Running the Project](#running-the-project)
-7. [Model Details](#model-details)
-8. [Results & Evaluation](#results--evaluation)
-9. [Contributing](#contributing)
-10. [Contact](#contact)
+7. [Running the Project in a Docker Container](#Running-the-Project-in-a-Docker-Container)
+8. [Model Details](#model-details)
+9. [Results & Evaluation](#results--evaluation)
+10. [Contributing](#contributing)
+11. [Contact](#contact)
 
 
 ---
@@ -20,7 +21,8 @@
 
 Diabetes is a serious chronic disease affecting millions worldwide. Predicting who may develop diabetes can help in early detection and prevention, thereby reducing complications and healthcare costs.
 
-In this project 4 machine learning models twere trained to predict whether an individual likely has diabetes based on various health metrics such as **glucose level, BMI, age, blood pressure, insulin**, and the best model was chosen to be deployed. The project demonstrates a complete ML workflow: preprocessing, model training, evaluation, and prediction.
+
+In this project multiple models were trained and tuned their parameters to predict whether an individual likely has diabetes based on various health metrics such as **glucose level, BMI, age, blood pressure, insulin**, and the best model was chosen to be deployed. The project demonstrates a complete ML workflow: preprocessing, model training, evaluation, and prediction.
 
 ---
 
@@ -205,7 +207,66 @@ run notebook.ipynb
 
 ---
 
-## 7. Models Details
+## 7. Running the Project in a Docker Container
+
+This project includes everything needed to run the training or prediction pipeline inside a Docker container.
+
+### **Prerequisites**
+
+* Docker installed
+
+  * [Install Docker](https://docs.docker.com/get-docker/)
+
+---
+
+## 🐳 Build the Docker Image
+
+From the project root directory:
+
+```bash
+docker build -t diabetes-prediction .
+```
+
+This command:
+
+* Builds an image named **diabetes-prediction**
+* Uses the `Dockerfile` in the root of this repository
+* Installs dependencies listed in `pyproject.toml` using UV inside the container
+
+---
+
+## ▶️ Run the Container
+
+
+### **Run prediction inside the container**
+
+To run the prediction script with default sample inputs:
+
+```bash
+docker run -it --rm -p 9696:9696 diabetes-prediction
+```
+
+### **Run prediction with custom input**
+
+You can pass arguments using the command line:
+
+```bash
+curl -X 'POST' \
+  'http://localhost:9696/predict' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{  "gender":"Male",
+            "age":70,
+            "hypertension":1,
+            "heart_disease":1,
+            "smoking_history":"former",
+            "bmi":40,
+            "HbA1c_level":8,
+            "blood_glucose_level":150}'
+```
+
+
+## 8. Models Details
 
 * **Algorithms used:** (Random Forest / Logistic Regression / Decision Tree / Gradient Boosting)
 * **Input features:** 4 numerical / 4 categorical medical markers
@@ -215,7 +276,7 @@ run notebook.ipynb
 
 ---
 
-## 8. Results & Evaluation of the final chosen model (Gradient Boosting)
+## 9. Results & Evaluation of the final chosen model (Gradient Boosting)
 
 
 ## 📊 Model Performance Metrics
@@ -231,7 +292,8 @@ run notebook.ipynb
 
 ---
 
-## 9. Contributing
+
+## 10. Contributing
 
 Contributions are welcome!
 
@@ -241,10 +303,14 @@ Contributions are welcome!
 4. Submit a pull request
 
 
-## 10. Contact
+## 11. Contact
 
 **Author:** Muhammad Ibrahim
 
 - **GitHub:** https://github.com/Muhammadibra40  
 - **LinkedIn:** https://www.linkedin.com/in/muhammad-ibrahim-093293218/  
 - **Email:** migibra678@gmail.com
+
+
+---
+
